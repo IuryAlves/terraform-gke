@@ -1,0 +1,7 @@
+region="europe-west3"
+zone="europe-west3-c"
+machine_type="e2-medium"
+cluster_name="test-cluster"
+nodepool_name="nodepool1"
+project_id="terraform-312509"
+service_account_name="test-123"
