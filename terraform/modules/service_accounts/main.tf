@@ -5,6 +5,7 @@ resource "google_service_account" "service_account" {
 }
 
 
+# See: https://github.com/hashicorp/terraform-provider-google/issues/9050
 # resource "google_project_iam_binding" "project" {
 #  project = var.project
 #  role    = "roles/owner"
@@ -17,7 +18,7 @@ resource "google_service_account" "service_account" {
 
 resource "google_service_account_iam_binding" "admin-account-iam" {
   service_account_id = google_service_account.service_account.name
-  role               = "roles/iam.workloadIdentityUser"
+  role = "roles/iam.workloadIdentityUser"
 
   members = [
     "serviceAccount:${var.project}.svc.id.goog[cnrm-system/cnrm-controller-manager]"
