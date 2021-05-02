@@ -1,0 +1,12 @@
+apiVersion: pubsub.cnrm.cloud.google.com/v1beta1
+kind: PubSubTopic
+metadata:
+  name: pubsubsubscription-dep
+  namespace: $project_id
+    
+---
+apiVersion: pubsub.cnrm.cloud.google.com/v1beta1
+kind: PubSubTopic
+metadata:
+  name: pubsubsubscription-dep2
+  namespace: $project_id
