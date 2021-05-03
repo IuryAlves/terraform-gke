@@ -1,3 +1,7 @@
 terraform/.terraform.lock.hcl
 terraform/google-creds.json
 .terraform.lock.hcl
+kubeconfig.yaml
+terraform/terraform.tfstate
+terraform/terraform.tfstate.backup
+terraform/.terraform/
