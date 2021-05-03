@@ -2,9 +2,7 @@
 
 set -e 
 
-source terraform/terraform.tfvars
-
-export KUBECONFIG=./kubeconfig.yaml
+source $(dirname $0)/common.sh
 
 gcloud container clusters get-credentials test-cluster \
     --project $project_id \

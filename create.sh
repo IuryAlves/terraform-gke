@@ -2,10 +2,7 @@
 
 set -e
 
-source terraform/terraform.tfvars
-
-export KUBECONFIG=./kubeconfig.yaml 
-export project_id service_account_name
+source $(dirname $0)/common.sh
 
 terraform -chdir=terraform apply -auto-approve 
 
