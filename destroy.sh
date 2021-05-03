@@ -10,9 +10,11 @@ gcloud container clusters get-credentials test-cluster \
 
 echo "Removing kubernetes resources"
 
-for file in kubernetes/*.yaml; do
-  envsubst < $file | kubectl apply -f-
-done
+envsubst < kubernetes/config-connector.yaml | kubectl delete -f-
+envsubst < kubernetes/namespace.yaml | kubectl delete -f-
+envsubst < kubernetes/enable-pubsub.yaml | kubectl delete -f-
+envsubst < kubernetes/pub-sub-topic.yaml | kubectl delete -f-
+envsubst < kubernetes/pub-sub-subscription.yaml | kubectl delete -f-
 
 terraform -chdir=terraform destroy -auto-approve
 

@@ -22,6 +22,8 @@ gcloud container clusters get-credentials test-cluster \
 
 echo "Creating kubernetes resources"
 
-for file in kubernetes/*.yaml; do
-  envsubst < $file | kubectl apply -f-
-done
+envsubst < kubernetes/config-connector.yaml | kubectl apply -f-
+envsubst < kubernetes/namespace.yaml | kubectl apply -f-
+envsubst < kubernetes/enable-pubsub.yaml | kubectl apply -f-
+envsubst < kubernetes/pub-sub-topic.yaml | kubectl apply -f-
+envsubst < kubernetes/pub-sub-subscription.yaml | kubectl apply -f-
