@@ -1,7 +1,5 @@
 #!/usr/bin/env sh
 
-set -e 
-
 source $(dirname $0)/common.sh
 
 gcloud container clusters get-credentials test-cluster \
