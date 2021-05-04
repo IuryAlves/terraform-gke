@@ -17,8 +17,12 @@ envsubst < kubernetes/config-connector.yaml | kubectl apply -f-
 
 echo "Waiting for config-connector to be ready ..."
 
-kubectl wait -n cnrm-system \
-      --for=condition=Ready pod --all
+kubectl wait \
+    crd/configconnectors.core.cnrm.cloud.google.com \
+    --timeout=60s \
+    --for condition=established
+
+sleep 30
 
 envsubst < kubernetes/namespace.yaml | kubectl apply -f-
 envsubst < kubernetes/enable-pubsub.yaml | kubectl apply -f-
