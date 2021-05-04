@@ -10,8 +10,6 @@ echo "Removing kubernetes resources"
 
 envsubst < kubernetes/pub-sub-topic.yaml | kubectl delete -f-
 envsubst < kubernetes/pub-sub-subscription.yaml | kubectl delete -f-
-envsubst < kubernetes/namespace.yaml | kubectl delete -f-
-envsubst < kubernetes/config-connector.yaml | kubectl delete -f-
 
 terraform -chdir=terraform destroy -auto-approve
 
