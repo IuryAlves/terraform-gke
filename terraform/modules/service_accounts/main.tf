@@ -5,15 +5,13 @@ resource "google_service_account" "service_account" {
 }
 
 
-# See: https://github.com/hashicorp/terraform-provider-google/issues/9050
-# resource "google_project_iam_binding" "project" {
-#  project = var.project
-#  role    = "roles/owner"
+resource "google_project_iam_member" "project" {
+  project = var.project
+  role = "roles/owner"
 
-#  members = [
-#    "serviceAccount:${google_service_account.service_account.email}",
-#  ]
-#}
+  member = "serviceAccount:${google_service_account.service_account.email}"
+  
+}
 
 
 resource "google_service_account_iam_binding" "admin-account-iam" {

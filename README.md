@@ -23,7 +23,7 @@ This project uses Terraform and Kubernetes Config Connector for creating and con
 
 ### Creating
 ```
-terraform -chdir=terraform init
+terraform -chdir=terraform init # First time only
 ./create.sh
 ```
 
